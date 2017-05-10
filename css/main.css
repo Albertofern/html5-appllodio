@@ -94,16 +94,232 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+/*** GENERAL LAYOUT ****/
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+#wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+#page {
+    min-height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+#page-header {
+
+}
+#page-footer {
+
+}
+
+#page-body {
+    flex: 1;
+}
+section.flexcontainer{
+    flex-direction: column;
+}
+section.flexcontainer > div.flexcontainer{
+    flex-direction: row;
+    justify-content: center;
+}
+.flexcontainer {
+    display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;  /* IE 10 */
+    display: -webkit-flex; /*  Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex;         /* W3C Spec - Firefox, Chrome, Opera */
+}
+input:not([type='checkbox']),  textarea{
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#contactForm {
+    width: 80%;
+    align-items: center;
+}
+#contactForm.flexcontainer{
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+form .flexcontainer{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+#contactForm label{
+    max-width: 220px;
+    padding-top: 7px;
+    margin-bottom: 0;
+    text-align: left;
+    flex: 1 0 120px;
+}
+
+form .flexcontainer:not(:last-child){
+    margin-bottom: 15px;
+}
+.text-error{
+    color: red;
+    margin-left: 15px;
+}
+form .flexcontainer div.text-error{
+    flex: 1 0 120px;
+}
+form button{
+    padding: 8px 16px;
+    border: none;
+    background: #333;
+    color: #f2f2f2;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    border-radius: 2px;
+}
+form .flexcontainer:last-child {
+    justify-content: flex-start;
+    margin-left: 200px;
+}
+/******* MENU *******/
+/*Strip the ul of padding and list styling*/
+nav {
+    display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;  /* IE 10 */
+    display: -webkit-flex; /*  Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex;         /* W3C Spec - Firefox, Chrome, Opera */
+    justify-content: center;
+    min-height: 50px;
+}
+ul {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    position: absolute;
+    display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;  /* IE 10 */
+    display: -webkit-flex; /*  Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex;         /* W3C Spec - Firefox, Chrome, Opera */
+    z-index: 1000;
+}
+
+/*Create a horizontal list with spacing*/
+li {
+    /*     display:inline-block;*/
+
+    margin-right: 1px;
+}
+
+/*Style for menu links*/
+li a {
+    display:block;
+    min-width:140px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #fff;
+    background: #2f3036;
+    text-decoration: none;
+}
+
+/*Hover state for top level links*/
+li:hover a {
+    background: #19c589;
+}
+
+/*Style for dropdown links*/
+li:hover ul a {
+    background: #f3f3f3;
+    color: #2f3036;
+    height: 40px;
+    line-height: 40px;
+}
+
+/*Hover state for dropdown links*/
+li:hover ul a:hover {
+    background: #19c589;
+    color: #fff;
+}
+
+/*Hide dropdown links until they are needed*/
+li ul {
+    display: none;
+}
+
+/*Make dropdown links vertical*/
+li ul li {
+    display: block;
+    /* float: none;*/
+}
+
+/*Prevent text wrapping*/
+li ul li a {
+    width: auto;
+    min-width: 100px;
+    padding: 0 20px;
+}
+
+/*Display the dropdown on hover*/
+ul li a:hover + .submenu, .submenu:hover {
+    display: block;
+}
+
+/*Style 'show menu' label button and hide it by default*/
+.show-menu {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-decoration: none;
+    color: #fff;
+    background: #19c589;
+    text-align: center;
+    padding: 10px 0;
+    display: none;
+}
+
+/*Hide checkbox*/
+input[type=checkbox]{
+    display: none;
+}
+
+/*Show menu when invisible checkbox is checked*/
+input[type=checkbox]:checked ~ #menu{
+    display: block;
+}
 
 
-
-
-
-
-
-
-
-
+/*Responsive Styles*/
+@media screen and (max-width : 760px){
+    /*Make dropdown links appear inline*/
+    ul {
+        position: static;
+        display: none;
+    }
+    /*Create vertical spacing*/
+    li {
+        margin-bottom: 1px;
+    }
+    /*Make all menu links full width*/
+    ul li, li a {
+        width: 100%;
+    }
+    /*Display 'show menu' link*/
+    .show-menu {
+        display:block;
+        width: 100%;
+    }
+    nav{
+        justify-content: center;
+        flex-direction: column;
+    }
+}
 
 
 
@@ -196,9 +412,9 @@ textarea {
 }
 
 @media print,
-       (-webkit-min-device-pixel-ratio: 1.25),
-       (min-resolution: 1.25dppx),
-       (min-resolution: 120dpi) {
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
     /* Style adjustments for high resolution devices */
 }
 
