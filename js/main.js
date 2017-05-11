@@ -16,14 +16,13 @@ jQuery(document).ready(function($) {
         var nomValido = validarNombre(pnombre);
         var apeValido = validarApellidos(papellidos);
         var teleValido = validarTelefono(ptelefono);
+        $("#dni").siblings("div.text-error").text("");
+        $("#nombre").siblings("div.text-error").text("");
+        $("#apellidos").siblings("div.text-error").text("");
+        $("#telefono").siblings("div.text-error").text("");
         if(dniValido&&nomValido&&apeValido&&teleValido){
             // $("#contactForm").submit();//se envia el Formulario(Consumir REST)
             valido = true;
-            $("#dni").siblings("div.text-error").text("");
-            $("#nombre").siblings("div.text-error").text("");
-            $("#apellidos").siblings("div.text-error").text("");
-            $("#telefono").siblings("div.text-error").text("El telefono no es valido, tiene que tener 9 numeros");
-
         }else {
             //mostar mensaje de error
             if(!dniValido){
@@ -40,22 +39,22 @@ jQuery(document).ready(function($) {
             }
             //text y html
         }
-        return valido;
+        return false;
     }
 });
 
 function validarNombre(nombre){
-    const pattern = new RegExp("[a-zA-Z]{3,}");
+    const pattern = new RegExp(/[a-zA-Z]{3,}/);
     return pattern.test(nombre);
 }
 function validarApellidos(apellidos) {
-    const pattern = new RegExp("[a-zA-Z]{2,}\s[a-zA-Z]{2,}");
+    const pattern = new RegExp(/[a-zA-Z]{2,}\s[a-zA-Z]{2,}/);
     return pattern.test(apellidos);
 }
 function validarTelefono(telefono){
     var valido = true;
     if(telefono!=""){
-        const pattern = new RegExp("\d{9}");
+        const pattern = new RegExp(/\d{9}/);
         valido = pattern.test(telefono);
     }
     return valido ;
@@ -63,7 +62,7 @@ function validarTelefono(telefono){
 
 function validarDni(dni) {
     var valido =false;
-    const pattern = new RegExp("\d{8}[a-zA-Z]");
+    const pattern = new RegExp(/\d{8}[A-Za-z]{1}/);
     if(pattern.test(dni)){
         numero = parseInt(dni.substr(0,dni.length-1),10);
         letr = dni.substr(dni.length-1,1);
