@@ -2,8 +2,20 @@ var barrios = [1,2,3,4,5,6,7];
 $.noConflict();
 jQuery(document).ready(function($) {
     // Code that uses jQuery's $ can follow here.
-    $("#contactForm").on("submit",validarFormularioContacto);
-
+    $("#borrartodos").click(function (event) {
+        //attr ---> cambios de atributos
+        // prop --> propiedades
+        // is ----> validacion booleana
+        if($(this).is(":checked")){
+            $("tbody input[type=checkbox]").prop("checked",true);
+            //
+            //checked = checked
+            //selected= selected
+            //
+        }else{
+            $("tbody input[type=checkbox]").prop("checked",false);
+        }
+    });
 
     function validarFormularioContacto(){
         //recoger los valores de la vista
