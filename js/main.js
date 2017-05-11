@@ -58,9 +58,10 @@ jQuery(document).ready(function($) {
     function cargarArrayBarrios() {
         //recorrer el array
         if (barrios.length > 0) {
+            
             for (var a in barrios) {
                 console.log(a);
-                var texto = "<tr><td><input type='checkbox' value='" + a + "'></td><td></td><td></td><td></td><td></td><td></td></tr>";
+                var texto = "<tr><td><input type='checkbox' value='" + a + "'></td><td></td></tr>";
                 //añadir el html correspondiente a la página
                 $("#tablaBarrios tbody").append(texto);
                 //-->
