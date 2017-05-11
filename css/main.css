@@ -287,7 +287,7 @@ ul li a:hover + .submenu, .submenu:hover {
 
 /*Hide checkbox*/
 input[type=checkbox]{
-    display: none;
+    display: block;
 }
 
 /*Show menu when invisible checkbox is checked*/

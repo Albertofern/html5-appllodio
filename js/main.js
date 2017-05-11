@@ -1,3 +1,4 @@
+var barrios = [1,2,3,4,5,6,7];
 $.noConflict();
 jQuery(document).ready(function($) {
     // Code that uses jQuery's $ can follow here.
@@ -41,7 +42,26 @@ jQuery(document).ready(function($) {
         }
         return false;
     }
+    cargarArrayBarrios();
+    function cargarArrayBarrios() {
+        //recorrer el array
+        if (barrios.length > 0) {
+            for (var a in barrios) {
+                console.log(a);
+                var texto = "<tr><td><input type='checkbox' value='" + a + "'></td><td></td><td></td><td></td><td></td><td></td></tr>";
+                //añadir el html correspondiente a la página
+                $("#tablaBarrios tbody").append(texto);
+                //-->
+            }
+            $("#tablaBarrios tfoot td").html("<span class='text-error'>Total barrios:"+barrios.length,10+"</span>");
+        }else{
+            $("#tablaBarrios").remove();
+            $("#listadoBarrios").text("No se han encontrado barrios")
+        }
+    }
 });
+
+
 
 function validarNombre(nombre){
     const pattern = new RegExp(/[a-zA-Z]{3,}/);
