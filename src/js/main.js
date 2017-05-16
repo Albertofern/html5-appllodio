@@ -1,7 +1,5 @@
 var barrios = [1,2,3,4,5,6,7];
 
-
-var $ = require('jquery');
 $.noConflict();
 jQuery(document).ready(function($) {
     // Code that uses jQuery's $ can follow here.
