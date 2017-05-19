@@ -154,6 +154,14 @@ main section div{
 #page-body {
     flex: 1;
 }
+
+footer a:link, footer a:visited {
+    color: #444;
+}
+#page-body .flexcontainer a:last-child{
+     margin-left: 2px;
+}
+
 section.flexcontainer{
     flex-direction: column;
 }

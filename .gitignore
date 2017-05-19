@@ -122,3 +122,4 @@ ignore.xml
 diff.xml
 web-browsers.xml
 .travis.yml
+node_modules
