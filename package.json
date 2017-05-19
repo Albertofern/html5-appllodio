@@ -1,0 +1,42 @@
+{
+  "name": "html5-appllodio",
+  "version": "1.0.0",
+  "description": "Gestion de aplicacion del municipio de llodio",
+  "main": "Gulpfile.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Albertofern/html5-appllodio.git"
+  },
+  "keywords": [
+    "html5",
+    "css",
+    "ajax",
+    "jquery",
+    "gulp."
+  ],
+  "author": "Alberto Fernandez Torres",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Albertofern/html5-appllodio/issues"
+  },
+  "homepage": "https://github.com/Albertofern/html5-appllodio#readme",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.4.0",
+    "babelify": "^7.3.0",
+    "browserify": "^14.3.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-uglify": "^2.1.2",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
